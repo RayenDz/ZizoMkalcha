@@ -1,0 +1,28 @@
+
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const timeString = now.toLocaleTimeString('ar-SA');
+    const dateString = now.toLocaleDateString('ar-SA', options);
+    document.getElementById('date-time').textContent = `${dateString} - ${timeString}`;
+}
+
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
+    
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    document.onselectstart = function () {
+        return false;
+    };
+
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+            e.preventDefault();
+        }
+    });
+
